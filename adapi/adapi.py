@@ -41,7 +41,7 @@ class ProClient(object):
         try:
             return response.json()
         except:
-            # sometime the .json() will raise and Exception.
+            # sometime the .json() will raise an Exception.
             return response
 
     def execute_download(self, url):
