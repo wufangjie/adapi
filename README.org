@@ -10,6 +10,7 @@ refresh_token and profile_id are relatively stable, so there's no need to get th
 #+BEGIN_SRC python
 import adapi
 import json
+import gzip
 
 auth = adapi.Auth(client_id=client_id,
                   client_secret=client_secret,
