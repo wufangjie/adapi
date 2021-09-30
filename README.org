@@ -1,0 +1,28 @@
+* Preparation
+refresh_token and profile_id are relatively stable, so there's no need to get them for daily usage, just caching them:
+| client_id     |
+| client_secret |
+| refresh_token |
+| profile_id    |
+| region        |
+
+* Usage(omit Error handling for simplicity)
+#+BEGIN_SRC python
+import adapi
+import json
+
+auth = adapi.Auth(client_id=client_id,
+                  client_secret=client_secret,
+                  refresh_token=refresh_token,
+                  region=region)
+auth.profile_id = profile_id
+
+report_api = adapi.sp_products.Reports(auth)
+response = report_api.request_report(record_type=record_type,
+                                     params=params)
+
+temp = report_api.get_report_download_url(response['reportId'])
+detail = json.loads(gzip.decompress(temp.content).decode('utf-8'))
+
+# report_api.update_access() # update access_token when expired
+#+END_SRC

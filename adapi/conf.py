@@ -11,8 +11,5 @@ token_url_dict = {
 host_url_dict = {
     "NA": "https://www.amazon.com/ap/oa",
     "EU": "https://eu.account.amazon.com/ap/oa",
-    "FE": "	https://apac.account.amazon.com/ap/oa"
+    "FE": "https://apac.account.amazon.com/ap/oa"
 }
-
-
-

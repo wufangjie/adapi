@@ -13,5 +13,3 @@ class Profiles(ProClient):
         self.uri_path = "/v2/profiles"
         self.method = "get"
         return self.execute()
-
-    
