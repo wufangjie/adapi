@@ -1,4 +1,4 @@
-from adapi.adapi import ProClient
+from .adapi import ProClient
 
 
 class Profiles(ProClient):
