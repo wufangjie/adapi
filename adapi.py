@@ -34,7 +34,11 @@ class ProClient(object):
         if self.method == "delete":
             response = requests.delete(url, headers=self.headers).text
             return response
-        if self.data:
+        if self.method == 'get':
+            if self.data:
+                self.params = self.data
+                self.data = None
+        elif self.data:
             self.data = json.dumps(self.data)
         response = requests.request(self.method, url, headers=self.headers,
                                     params=self.params, data=self.data)
