@@ -9,6 +9,7 @@ class ProClient(object):
         self.domain = domain_dict[self.auth.region]
         self.method = "get"
         self.data = None
+        self.params = None
         self.uri_path = None
 
         self.headers = {
@@ -35,9 +36,10 @@ class ProClient(object):
             return response
         if self.data:
             self.data = json.dumps(self.data)
-        response = requests.request(
-            self.method, url, headers=self.headers, data=self.data)
+        response = requests.request(self.method, url, headers=self.headers,
+                                    params=self.params, data=self.data)
         self.data = None # remove data when used
+        self.params = None
         try:
             return response.json()
         except:

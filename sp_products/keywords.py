@@ -16,7 +16,8 @@ class Keywords(Client):
     def get_keywords_extended(self, params):
         self.method = "get"
         self.uri_path = "/v2/sp/keywords/extended"
-        self.data = params
+        #self.data = params
+        self.params = params
         return self.execute()
 
     def get_keywords_extended_by_id(self, keyword_id):
@@ -27,7 +28,8 @@ class Keywords(Client):
     def get_keywords(self, params):
         self.method = "get"
         self.uri_path = "/v2/sp/keywords"
-        self.data = params
+        #self.data = params
+        self.params = params
         return self.execute()
 
     def create_keywords(self, params):
